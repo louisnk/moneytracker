@@ -1,0 +1,143 @@
+body {
+	font-size: 12pt;
+	font-weight: 700;
+	color: #004;
+	background: #eef;
+}
+
+input {
+	border-radius: 5px;
+	border: 0;
+}
+
+div {
+	margin: 0;
+}
+
+.menu {	
+	position: relative;
+	top: 0;
+	margin: 0;
+	padding: 5px;
+	background: #afb;
+	border-bottom: 3px solid #0c2;	
+	width: 100%;
+}
+
+.menu h4, h3 {
+	display: inline-block;
+	padding: 0;
+	margin:0;
+}
+
+.main-options {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+		
+.main-options li {
+	display: inline-block;
+	margin: 5px;
+}
+
+.main-options .btn {
+	border: 0px;
+	border-radius: 5px;
+	background: #44f;
+}
+
+.main-options input[type=text] {
+	line-height: 2em;
+	padding: 5px;
+	border: 1px solid #333;
+	text-align: right;
+	font-weight: 600;
+}
+
+.monthly {
+	display: none;
+	margin: 10px;
+
+}
+.monthly h4 {
+	display: inline-block;
+}
+
+.choices {
+	display: none;
+	margin: 20px auto;
+}
+
+.choices ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.choices li {
+	display: inline-block;
+	margin: 10px auto;
+}
+
+.choices label {
+	margin-right: 5px;
+	margin-left: 15px;
+}
+
+.choices input {
+	line-height: 2em;
+	padding: 5px;
+	width: 75px;
+	border: 1px solid #444;
+}
+
+.graph {
+	position: relative;
+	background: #fff;
+	border: 2px solid #062;
+	height: 150px;	
+	margin: 40px auto;
+	overflow: hidden;
+	width: 100%;
+}
+
+.bg-success {
+	background: #afb;
+	border: 2px solid #0c2;
+}
+
+.bg-warning {
+	background: #de5;
+	border: 2px solid #ab3;
+}
+
+.bg-primary {
+	background: #55f;
+	border: 2px solid #22b;
+	color: #eee;
+}
+
+#internet {
+	background: #c33;
+	border: 2px solid #600;
+	color: #eee;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.blob {
+	display: inline-block;	
+	padding: 65px 10px;
+	height: 100%;
+	margin: 0 -5px 0 0;
+	border-top: 0;
+	border-bottom: 0;
+	text-align: center;
+}
+
+.blob:first-child {
+	border-left: 0;
+	
+}
