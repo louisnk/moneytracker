@@ -1,11 +1,9 @@
 moneytracker
 ============
 
-A simple budgeting tool with simple visualization
+A basic jQuery application to help visualize and plan a monthly budget. It calculates monthly post-tax income based on current (2014) U.S. Federal income tax rates. Adding functionality for other countries is possible with relatively little effort.
 
-Just a basic jQuery application to help visualize and plan a monthly budget. Not the most beautiful at this point, but for basic expenses, it works great.
-
-Feel free to take it, play with it, do whatever you want.
+Not the most beautiful at this point, but for basic expenses, it works great.
 
 Eventually this may morph into a full-fledged application with database writing capabilities via Node, but that is in the future.
 
