@@ -1,50 +1,56 @@
 (function() {
 
-		window.APP = {
+	APP = window.APP || {};
 
-			salary: 0,
+	APP = {
 
-			init: function() {
-				var self = this;
+		salary: 0,
 
-				$('input .salary').on('keydown',function(e) {
-					console.log('downed');
-					if (e.which === '13') {
-						console.log('entered');
-					}
-				});
+		init: function() {
+			var self = this;
 
-				self._bindClickHandlers($('.main-options button'), 
-																self.math.checkSalary);
+			self._watchEnter($('.salary'), APP.math.checkSalary);
 
-				$('.blob').resizable({
-					resize: function(event,ui) {},
-				});
+			self._watchEnter($('.choices'), APP.math.calcPercentages);
 
-				$('.blob').on('resize',function(event,ui) {
-					var text = $(this).text();
-					text = text.toLowerCase();
+			self._bindClickHandlers($('.main-options button'), 
+															self.math.checkSalary);
 
-					APP.blob._resize(text,false);
-				})
+			$('.blob').resizable({
+				resize: function(event,ui) {},
+			});
 
-			},
+			$('.blob').on('resize',function(event,ui) {
+				var title = $(this).text();
+				
+				APP.blob._resize(title,false);
+			})
 
-			_bindClickHandlers: function($el,action,params) {
+		},
 
-				$el.click(function(e) {
-					e.preventDefault();					
-					action(params);
-				});
+		_bindClickHandlers: function($el,action,params) {
 
-			},
+			$el.click(function(e) {
+				e.preventDefault();					
+				action(params);
+			});
 
-			_showOptions: function() {
-				$('.choices').show();
-				APP._bindClickHandlers($('.choices .submit'),
-																	APP.math.calcPercentages);
-			},
-		}
+		},
+
+		_watchEnter: function($el, action) {
+			$el.keypress(function(e) {
+				if (e.which == 13) {
+					action();
+				}
+			});
+		},
+
+		_showOptions: function() {
+			$('.choices').show();
+			APP._bindClickHandlers($('.choices .submit'),
+																APP.math.calcPercentages);
+		},
+	}
 
 	$(document).ready(function() {
 		

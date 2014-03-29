@@ -4,56 +4,65 @@
 
 	APP.math = {
 
+
+
 		checkSalary: function() {
-			var	salary = parseInt(($('.salary').val()).replace(',',''),10);
+			var	salary = parseInt(($('.salary').val()).replace(',',''));
 			
-			if (salary != '') {
-				APP.salary = APP.math.calcSalary(salary);
+			if (!isNaN(salary)) {
+				APP.salary = salary,
+				APP.monthly = APP.math.calcSalary(salary);
+				
 				APP._showOptions();
-				$('.monthly').append('<h4>Your monthly salary is: $' + 
-																			APP.salary/12 + '</h4>')
+				$('.monthly').empty().append('<h4>Your post-tax monthly salary is: $' + 
+																			APP.monthly + '</h4>')
 				.show();
 			} else {
-				// APP.inform();
-				console.log('no salary?');
+				$('.monthly').empty().append('<h4>Please enter a number</h4>').show();
 			}
 		},
 
 		calcSalary: function(salary) {
 			switch(true) {
 				case (salary < 37000):
-					return parseInt(salary - (salary * 0.15));
+				  var num = (salary - (salary * 0.15));
+				  return APP.math.makePercent(num/12);
 					break;
 
 				case (salary > 37000 && salary < 90000):
-					return parseInt(salary - (salary * 0.25));
+					var num = (salary - (salary * 0.25));
+					return APP.math.makePercent(num/12);
 					break;
 
 				case (salary > 90000 && salary < 186000):
-					return parseInt(salary - (salary * 0.28));
+					var num = (salary - (salary * 0.28));
+					return APP.math.makePercent(num/12);
 					break;
 
 				case (salary > 186000 && salary < 405000):
-					return parseInt(salary - (salary * 0.33));
+					var num = (salary - (salary * 0.33));
+					return APP.math.makePercent(num/12);
 					break;
 
 				case (salary > 405000 && salary < 406000):
-					return parseInt(salary - (salary * 0.35));
+					var num = (salary - (salary * 0.35));
+					return APP.math.makePercent(num/12);
 					break;
 
 				case (salary > 406000):
-					return parseInt(salary - (salary * 0.396));
+					var num = (salary - (salary * 0.396));
+					return APP.math.makePercent(num/12);
 					break;
 			}
 			return;
 		},
 
 		calcPercentages: function() {
-			APP.monthly = APP.salary /12,
-					monthly = APP.monthly, 	
-					amount = {},
-					total = 0,
-					self = APP.math;
+			
+			var	monthly = APP.monthly, 	
+					percent = {},
+					self = APP.math,
+					count = 0;
 
 			$('.choices input').each(function() {
 				
@@ -62,24 +71,36 @@
 				
 				if (isNaN(value)) value = 0;
 
-				amount[title] = value/monthly;
+				percent[title] = value/monthly;
 
-				APP.blob._resize(title,value);
+				count = APP.blob._resize(title,value,count);
 
 			});
-			
-			_.each(amount,function(num) { total += num })
+			self.checkFinished(count);
+			// if (count == 10) {
+			// 	self.checkTotal(percent);
+			// }
+		},
 
-			if (total > 0 && total < 2) {
-				total = total * 100;
-				total = self.makePercent(total);
-			} else {
-				$('.percent').html('<h4>You are massively exceeding your budget</h4>');
-				return;
+		checkFinished: function(count) {
+			setTimeout(function() {
+				if (count == $('.choices input').length) {
+				
+			 	APP.blob.checkWidth(APP.blob.findWidth());
+			}},200);
+		},
+
+		checkTotal: function(percent,callback) {
+			var total = 0,
+					blob = APP.blob;
+			
+			_.each(percent, function(num) { total += num });
+
+			if (total < 1 && count == 10) {
+				blob.checkWidth(blob.findWidth());
+				console.log(total + '-------' + count);
 			}
 
-			$('.percent').html('<h4>You are currently using ' + 
-																		total + '% of your monthly budget</h4>');
 		},
 
 		makePercent: function(total) {
@@ -88,25 +109,8 @@
 			return total;
 		},
 
-		changeFields: function($el,vals) {
-			var percent = parseInt($el.outerWidth() / ($('.graph').outerWidth() -10)),
-					box = $el.attr('id'),
-					val = percent * APP.monthly;
-
-			console.log(box);
-			return;
-			if(!isNaN(val)) {
-				
-				console.log(val + 'changeFields');
-				// $("'#"+box+"'").text(val);
-			} else {
-				console.error('nope');
-			}
-
-
-		},
-
 		updatePercentages: function(id,value) {
+
 			var percent = value / APP.monthly,
 					amt = parseInt(percent * APP.monthly),
 					name = id.slice(1);	
@@ -114,14 +118,14 @@
 					$('.choices input[name=' + name + ']').val(amt);
 			
 			return;
-		},
+		}
 
-		numberWithCommas: function(x) {
+		// numberWithCommas: function(x) {
 					
-	    var parts = x.toString().split(".");
-	    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	    return parts.join(".");
-		},
+		//  var parts = x.toString().split(".");
+	  //  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	  //  return parts.join(".");
+		// },
 
 	}
 

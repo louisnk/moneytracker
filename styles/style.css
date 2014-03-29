@@ -19,8 +19,8 @@ div {
 	top: 0;
 	margin: 0;
 	padding: 5px;
-	background: #afb;
-	border-bottom: 3px solid #0c2;	
+	background: #9ea;
+	border-bottom: 3px solid #496;	
 	width: 100%;
 }
 
@@ -99,6 +99,7 @@ div {
 	border: 2px solid #062;
 	height: 150px;	
 	margin: 40px auto;
+	padding: 0;
 	overflow: hidden;
 	width: 100%;
 }
@@ -129,15 +130,27 @@ div {
 
 .blob {
 	display: inline-block;	
-	padding: 65px 10px;
+	padding: 75px 0 	;
 	height: 100%;
 	margin: 0 -5px 0 0;
 	border-top: 0;
 	border-bottom: 0;
 	text-align: center;
-}
+	}
 
 .blob:first-child {
 	border-left: 0;
-	
+}
+
+.ui-resizable-handle {
+	right: 0;
+	width: 5px;
+	margin: 0;
+	padding: 0;
+}
+
+
+#savings {
+	position: absolute;
+	right: 0;
 }

@@ -19,11 +19,11 @@
 
 <div class="menu row">
 	<div class="main-options col-md-6">
-		<h4>Type your salary to get started:</h4>		
+		<h4>Type your annual salary to get started:</h4>		
 		
 			<li><h3>$</h3><input type="text" class='salary' /></li>
 
-			<li><button	class='basic-info btn btn-success submit'>Calculate real salary</button> </li>
+			<li><button	class='basic-info btn btn-success submit'>Calculate monthly post-tax income</button> </li>
 
 	</div>
 
@@ -76,7 +76,7 @@
 			</li>
 			<li>
 				<label for="other" class="text-warning">Other</label>
-				<input type="text" name='other' placeholder='Other Bills' />
+				<input type="text" name='other' placeholder='Other' />
 			</li>
 			<li>
 				<label class='text-success'>Savings</label>
@@ -90,18 +90,16 @@
 </div>
 
 <div class="graph">
-	<div class='blobs'>
-		<div id='savings' class='bg-success blob '>Savings</div>
-		<div id='fuel' class='bg-warning blob '>Fuel</div>
-		<div id='food' class='bg-primary blob '>Food</div>
-		<div id='rent' class='bg-primary blob '>Rent</div>
-		<div id='phone' class='bg-primary blob '>Phone</div>
-		<div id='internet' class='bg-primary blob '>Internet</div>
-		<div id='insurance' class='bg-success blob '>Insurance</div>
-		<div id="other" class="bg-warning blob ">Other Bills</div>
-		<div id='water' class='bg-primary blob'>Water</div>
-		<div id='power' class='bg-primary blob'>Power</div>
-	</div>
+	<div id='fuel' class='bg-warning blob '>Fuel</div>
+	<div id='food' class='bg-primary blob '>Food</div>
+	<div id='rent' class='bg-primary blob '>Rent</div>
+	<div id='insurance' class='bg-success blob '>Insurance</div>
+	<div id='water' class='bg-primary blob'>Water</div>
+	<div id='power' class='bg-primary blob'>Power</div>			
+	<div id='phone' class='bg-primary blob '>Phone</div>
+	<div id='internet' class='bg-primary blob '>Internet</div>
+	<div id="other" class="bg-warning blob ">Other</div>
+	<div id='savings' class='bg-success blob '>Savings</div>
 </div>
 
 </body>
