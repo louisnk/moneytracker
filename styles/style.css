@@ -130,9 +130,9 @@ div {
 
 .blob {
 	display: inline-block;	
-	padding: 75px 0 	;
+	padding: 75px 0;
 	height: 100%;
-	margin: 0 -5px 0 0;
+	margin: 0 -5px;
 	border-top: 0;
 	border-bottom: 0;
 	text-align: center;
@@ -142,15 +142,24 @@ div {
 	border-left: 0;
 }
 
-.ui-resizable-handle {
-	right: 0;
-	width: 5px;
-	margin: 0;
-	padding: 0;
+.blob:last-child {
+	margin-right: -10px;
 }
+
+.ui-resizable-e {
+	right: 0;
+	margin: 0;
+}
+
+
 
 
 #savings {
 	position: absolute;
 	right: 0;
+	display: inline-block;
+	margin: 0;
+	padding: 75px 10px;
+	text-align: center;
+	border-top: 0;
 }

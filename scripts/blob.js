@@ -22,9 +22,7 @@
 				self.changeFields($el,id);
 				self.findWidth()
 			}
-
 			return ++count;
-
 		},
 
 		animateBlobs: function(id,size,value) {
@@ -36,38 +34,34 @@
 		changeFields: function($el,id) {
 
 			var self = APP.math,
-					percent = ($(id).outerWidth() / $('.graph').outerWidth()),
+					percent = ($(id).innerWidth() / $('.graph').innerWidth()),
 					amt = self.makePercent(percent * APP.monthly);
 
 			$el.val(amt);
-
-			console.log('changing fields');
 		},
 
 		findWidth: function() {
 			var width = 0;
 
 			$('.blob').each(function() {
-				width += $(this).outerWidth();
+				width += $(this).innerWidth();
 			});
 
-			console.log(width + '------------------------- width found!');
+			width += $('#savings').innerWidth() - 25;
 
 			APP.blob.checkWidth(width);
 		},
 
 		checkWidth: function(width) {
-			if (width >= $('.graph').outerWidth()) {
+			if (width >= $('.graph').innerWidth()) {
 				APP.blob.shrinkSavings(width);
-			} else if (width < $('.graph').outerWidth()) {
+			} else if (width < $('.graph').innerWidth()) {
 				APP.blob.growSavings(width);
 			}
-
-			console.log('width checked, passing it on....');
 		},
 
 		shrinkSavings: function(width) {
-			var overflow = (width - $('.graph').outerWidth()),
+			var overflow = (width - $('.graph').innerWidth()),
 					size = $('#savings').width() - overflow,
 					id = '#savings';
 			
@@ -76,7 +70,7 @@
 		},
 
 		growSavings: function(width) {
-			var extra = ($('.graph').outerWidth() - width),
+			var extra = ($('.graph').innerWidth() - width),
 					size = $('#savings').width() + extra,
 					id = '#savings';
 

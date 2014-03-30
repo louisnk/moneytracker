@@ -18,6 +18,7 @@
 
 			$('.blob').resizable({
 				resize: function(event,ui) {},
+				autoHide: true,
 			});
 
 			$('.blob').on('resize',function(event,ui) {
