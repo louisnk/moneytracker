@@ -8,7 +8,6 @@
 
 		checkSalary: function() {
 			var	salary = parseInt(($('.salary').val()).replace(',',''));
-			
 			if (!isNaN(salary)) {
 				APP.salary = salary,
 				APP.monthly = APP.math.calcSalary(salary);
@@ -100,7 +99,6 @@
 				blob.checkWidth(blob.findWidth());
 				console.log(total + '-------' + count);
 			}
-
 		},
 
 		makePercent: function(total) {
@@ -129,5 +127,4 @@
 
 	}
 
-	
 })();

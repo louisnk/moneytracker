@@ -6,7 +6,7 @@ body {
 }
 
 input {
-	border-radius: 5px;
+	border-radius: 1px;
 	border: 0;
 }
 
@@ -49,7 +49,7 @@ div {
 
 .main-options input[type=text] {
 	line-height: 2em;
-	padding: 5px;
+	padding: 2px;
 	border: 1px solid #333;
 	text-align: right;
 	font-weight: 600;
@@ -87,8 +87,8 @@ div {
 }
 
 .choices input {
-	line-height: 2em;
-	padding: 5px;
+	line-height: 1.5em;
+	padding: 2px;
 	width: 75px;
 	border: 1px solid #444;
 }
