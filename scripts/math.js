@@ -22,38 +22,77 @@
 		},
 
 		calcSalary: function(salary) {
-			switch(true) {
-				case (salary < 37000):
-				  var num = (salary - (salary * 0.15));
-				  return APP.math.makePercent(num/12);
-					break;
+			var math = APP.math;
+			var levels = [37000,
+										53000,
+										96000,
+										199000,
+										1000,
+										1 	],
 
-				case (salary > 37000 && salary < 90000):
-					var num = (salary - (salary * 0.25));
-					return APP.math.makePercent(num/12);
-					break;
+					total = 0;
 
-				case (salary > 90000 && salary < 186000):
-					var num = (salary - (salary * 0.28));
-					return APP.math.makePercent(num/12);
-					break;
-
-				case (salary > 186000 && salary < 405000):
-					var num = (salary - (salary * 0.33));
-					return APP.math.makePercent(num/12);
-					break;
-
-				case (salary > 405000 && salary < 406000):
-					var num = (salary - (salary * 0.35));
-					return APP.math.makePercent(num/12);
-					break;
-
-				case (salary > 406000):
-					var num = (salary - (salary * 0.396));
-					return APP.math.makePercent(num/12);
-					break;
+			for (var i = 0; salary > 0; i++) {
+				var bracket = levels[i];
+				
+				if (salary >= bracket && i < 5) {
+					salary 	-= bracket;
+					total 	+= math.taxBrackets(bracket,i)
+				} else if (salary > 0) {
+					total += math.taxBrackets(salary,i);
+					salary = 0;
+				}
 			}
-			return;
+
+			monthly = math.makePercent((total-(total*0.04197))/12);
+	
+			return monthly;
+		},
+
+		taxBrackets: function(amount,level) {
+			var math = APP.math,
+					brackets = {
+						'0': amount-(amount*0.15),
+						'1': amount-(amount*0.25),
+						'2': amount-(amount*0.28),
+						'3': amount-(amount*0.33),
+						'4': amount-(amount*0.35),
+						'5': amount-(amount*0.396)
+					}
+
+			return brackets[level];
+
+			// switch(true) {
+			// 	case (amount < 37000):
+			// 	  var num = (amount - (amount * 0.15));
+			// 	  return APP.math.makePercent(num/12);
+			// 		break;
+
+			// 	case (amount > 37000 && amount < 90000):
+			// 		var num = (amount - (amount * 0.25));
+			// 		return APP.math.makePercent(num/12);
+			// 		break;
+
+			// 	case (amount > 90000 && amount < 186000):
+			// 		var num = (amount - (amount * 0.28));
+			// 		return APP.math.makePercent(num/12);
+			// 		break;
+
+			// 	case (amount > 186000 && amount < 405000):
+			// 		var num = (amount - (amount * 0.33));
+			// 		return APP.math.makePercent(num/12);
+			// 		break;
+
+			// 	case (amount > 405000 && amount < 406000):
+			// 		var num = (amount - (amount * 0.35));
+			// 		return APP.math.makePercent(num/12);
+			// 		break;
+
+			// 	case (amount > 406000):
+			// 		var num = (amount - (amount * 0.396));
+			// 		return APP.math.makePercent(num/12);
+			// 		break;
+			// }
 		},
 
 		calcPercentages: function() {
