@@ -3,7 +3,7 @@ moneytracker
 
 You can see a functioning example at: http://louisnk.com/budgeter/
 
-A basic jQuery application to help visualize and plan a monthly budget. It calculates monthly post-tax income based on current (2014) U.S. Federal income tax rates. Adding functionality for other countries is possible with relatively little effort.
+A basic JavaScript / jQuery application to help visualize and plan a monthly budget. It calculates monthly post-tax income based on current (2014) U.S. Federal income tax rates. Adding functionality for other countries is possible with relatively little effort.
 
 Not the most beautiful at this point, but for basic expenses, it works great.
 
