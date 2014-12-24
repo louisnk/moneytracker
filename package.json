@@ -1,0 +1,23 @@
+{
+  "name": "moneytracker",
+  "version": "0.0.0",
+  "description": "angular js based budgeting app, no back end for now",
+  "main": "app.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/louisnk/moneytracker.git"
+  },
+  "author": "Louis Kinley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/louisnk/moneytracker/issues"
+  },
+  "homepage": "https://github.com/louisnk/moneytracker"
+}
